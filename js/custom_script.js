@@ -14,15 +14,33 @@ $(document).ready(function(){
 		else{
 			// AJAX Code To Submit Form
 			var dataString = 'user_name='+ name + '&user_email='+ email + '&user_pwd='+ pwd;
-			$.ajax({
-				type: "POST",
-				url: "includes/signup.php",
-				data: dataString,
-				cache: false,
-				success: function(result){
-					alert(result);
-				}
-			});
+			call_ajax("POST","includes/signup.php", dataString);
 		}
 	});
+
+	$("#signin_submit").click(function(){
+		var email = $("#signin_email").val();
+		var pwd = $("#signin_pwd").val();
+
+		if(email==''||pwd==''){
+			alert("Please Fill All Fields");
+		}
+		else{
+			// AJAX Code To Submit Form
+			var dataString = 'user_signin_email='+ email + '&user_signin_pwd='+ pwd;
+			call_ajax("POST","includes/signin.php", dataString);
+		}
+	});
+
+	function call_ajax(method="POST",link='', dataString='') {
+		$.ajax({
+			type: method,
+			url: link,
+			data: dataString,
+			cache: false,
+			success: function(result){
+				alert(result);
+			}
+		});
+	}
 });

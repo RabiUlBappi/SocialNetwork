@@ -28,7 +28,7 @@
 			}
 		}
 
-		public function query($prepared_statement, $bound_params=''){
+		public function query($prepared_statement, $bound_params=array()){
 			$this->last_query = $prepared_statement;
 
 			$result = $this->connection->prepare($prepared_statement);
@@ -38,21 +38,17 @@
 			return $result;
 		}
 
-		// public function fetch_array($result){
-		// 	return mysqli_fetch_array($result);
-		// }
+		public function affected_rows($result_set){
+			return $result_set->rowCount();
+		}
 
-		// public function num_rows($result_set){
-		// 	return mysql_num_rows($result);
-		// }
+		public function insert_id(){
+			return $this->connection->lastInsertId();
+		}
 
-		// public function insert_id(){
-		// 	return mysqli_insert_id($this->connection);
-		// }
-
-		// public function affected_rows(){
-		// 	return mysql_affected_rows($this->connection);
-		// }
+		public function num_rows($result_set){
+			return count($result_set->fetchAll());
+		}
 
 		public function confirm_query($result){
 			if(!$result){

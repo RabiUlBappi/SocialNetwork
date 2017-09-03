@@ -8,11 +8,16 @@
 	$con = new MySQLDatabase();
 
 	if(isset($_POST['user_name'])){
-		$stmt = $con->query("SELECT user_id FROM users WHERE  email=?", array($email));
-		if($stmt->rowCount()>0) {echo "ERROR! This email is already taken.";}
+		if(User::authenticate($email, $password)) {echo "ERROR! This email is already taken.";}
 		else{
-			$stmt = $con->query("INSERT INTO users (user_name, email, password) VALUES (?, ?, ?)",array($name,$email,$password));
-			echo "You signed up succesfully!";
+			$user = new User();
+			
+			$user->user_name = $name;
+			$user->email = $email;
+			$user->password = $password;
+
+			$op = $user->save() ? "You signed up succesfully!" : "Sorry! Some error occurred during signup.";
+			echo $op;
 		}
 	}
 

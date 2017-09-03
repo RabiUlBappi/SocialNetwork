@@ -21,7 +21,7 @@
     <div class="container">
       <img src="img/logo.png" class="logo" alt="">
       
-      <?php if(!isset($_SESSION['user'])): ?>
+      <?php //if(!isset($_SESSION['user'])): ?>
         <form class="form-inline">
           <div class="form-group">
             <label class="sr-only" for="signin_email">Email address</label>
@@ -31,19 +31,19 @@
             <label class="sr-only" for="signin_pwd">Password</label>
             <input type="password" class="form-control" id="signin_pwd" placeholder="Password">
           </div>
-          <button type="submit" id="signin_submit" class="btn btn-default">Sign in</button><br>
+          <button type="button" id="signin_submit" class="btn btn-default">Sign in</button><br>
           <!-- <div class="checkbox">
             <label>
               <input type="checkbox"> Remember me
             </label>
           </div> -->
         </form>
-      <?php endif; ?>
+      <?php //endif; ?>
 
     </div>
   </header>
 
-  <?php if(isset($_SESSION['user'])): ?>
+  <?php //if(isset($_SESSION['user'])): ?>
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
@@ -66,4 +66,4 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-  <?php endif; ?>
+  <?php //endif; ?>
