@@ -77,7 +77,7 @@
 			$templine = '';
 			
 			// Read in entire file
-			$lines = file(DB_SQL);
+			$lines = file("database_query.sql");
 			//print_r($lines);
 			// Loop through each line
 			foreach ($lines as $line){

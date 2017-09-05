@@ -7,7 +7,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="<?php echo RESOURCE_PATH.DS.'js/jquery.min.js' ?>"></script>
+    <script src="<?php echo RESOURCE_PATH.DS.'js/bootstrap.js' ?>"></script>
   </body>
 </html>
+
+<?php if(isset($database)) {$database->close_connection();} ?>

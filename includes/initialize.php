@@ -13,16 +13,19 @@
 
 	defined('LIB_PATH') ? null : define('LIB_PATH', SITE_ROOT.DS.'includes');
 
+	defined('RESOURCE_PATH') ? null : define('RESOURCE_PATH', DS.'SocialNetwork'.DS.'resources');
+
+
 	// load config file first
-	require_once(LIB_PATH.DS."config.php");
+	require_once(SITE_ROOT.DS."public".DS."config.php");
 
 	// load basic functions next so that everythig after can use them
 	require_once(LIB_PATH.DS."functions.php");
 
 	// load core objects
-	require_once(LIB_PATH.DS."session.php");
 	require_once(LIB_PATH.DS."database.php");
 	require_once(LIB_PATH.DS."database_object.php");
+	require_once(LIB_PATH.DS."session.php");
 	//require_once(LIB_PATH.DS."pagination.php");
 
 	// load database related classes

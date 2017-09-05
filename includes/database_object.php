@@ -98,7 +98,7 @@
 			global $database;
 			$result_set = $database->query($prpd_stmt, $bind_param);
 			$object_array = array();
-			while($row = $result_set->fetchAll()){
+			while($row = $result_set->fetch(PDO::FETCH_ASSOC)){
 				$object_array[] = self::instantiate($row);
 			}
 			return $object_array;
